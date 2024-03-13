@@ -8,7 +8,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(express.json());
-app.use(cors());
+app.use(cors("*"));
 app.use("/api", UserRoutes)
 
 const MONGODB_URI = "mongodb+srv://nikhilpakhloo:root@watchdive.pijdktb.mongodb.net/Users?retryWrites=true&w=majority";
