@@ -3,15 +3,17 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import mongoose from "mongoose";
 import UserRoutes from "./routes/UserRoutes.js"
-const PORT = 8000;
+import dotenv from "dotenv"
+dotenv.config()
+const PORT = process.env.PORT || 5500;
 const app = express();
 
 app.use(bodyParser.json());
 app.use(express.json());
-app.use(cors({ origin: 'https://watchdive.pro' }));
+app.use(cors("*"));
 app.use("/api", UserRoutes)
 
-const MONGODB_URI = "mongodb+srv://nikhilpakhloo:root@watchdive.pijdktb.mongodb.net/Users?retryWrites=true&w=majority";
+const MONGODB_URI = process.env.MONGODB_URI;
 
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
