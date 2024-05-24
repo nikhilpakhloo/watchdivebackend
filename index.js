@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 import UserRoutes from "./routes/UserRoutes.js"
 import dotenv from "dotenv"
 dotenv.config()
-const PORT = 5500;
+const PORT = process.env.PORT|| 5500;
 const app = express();
 import ContactForm from "./models/ContactForm.js";
 
